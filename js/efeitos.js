@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
 	$("#logotipo").on("mouseover",function(){
@@ -71,41 +70,5 @@ $(document).ready(function(){
   		$("#input-search-mobile").focus();
 
   	});
-	$(function() {
-
-		$("#destaque-produtos").owlCarousel({
-
-			autoPlay: 4000,
-			items: 1,
-			singleItem: true
-
-		});
-
-		var owlDestaque = $("#destaque-produtos").data('owlCarousel');
-
-		$('#btn-destaque-prev').on("click", function() {
-
-			owlDestaque.prev();
-
-		});
-
-		$('#btn-destaque-next').on("click", function() {
-
-			owlDestaque.next();
-
-		});
-
-		$('.estrelas').each(function() {
-
-			$(this).raty({
-				starHalf: 'lib/raty/lib/images/star-half.png',
-				starOff: 'lib/raty/lib/images/star-off.png',
-				starOn: 'lib/raty/lib/images/star-on.png',
-				score: parseFloat($(this).data("score"))
-			});
-
-		});
-
-	});
 
 });

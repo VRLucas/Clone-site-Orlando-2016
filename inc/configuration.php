@@ -1,12 +1,49 @@
 <?php 
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database_name= "hcode_shop";
 
-$mysqli = new mysqli($hostname,$username,$password,$database_name);
-if($mysqli->connect_errno){
-    echo "Falha na conexão com o banco de dados:(". $mysqli->connect_errno . ")" . $mysqli->connect_error;
+class Sql {
+
+	public $conn;
+
+	public function __construct(){
+
+		return $this->conn = mysqli_connect("localhost", "root", "", "hcode_shop");
+
+	}
+
+	public function query($string_query){
+
+		return mysqli_query($this->conn, $string_query);
+
+	}
+
+	public function select($string_query){
+
+		$result = $this->query($string_query);
+
+		$data = array();
+
+	    while ($row = mysqli_fetch_array($result)) {
+	        
+	    	foreach ($row as $key => $value) {
+	    		$row[$key] = utf8_encode($value);
+	    	}
+
+	        array_push($data, $row);
+
+	    }
+
+	    unset($result);
+
+	    return $data;
+
+	}
+
+	public function __destruct(){
+
+		mysqli_close($this->conn);
+
+	}
+
 }
 
 ?>
