@@ -514,6 +514,7 @@ video {
 
 #destaque-produtos .col-imagem {
 	text-align: center;
+	
 }
 
 #destaque-produtos .col-descricao h2 {
@@ -566,8 +567,8 @@ video {
 
 #btn-destaque-prev {
 	position: absolute;
-	top: 140px;
-	left: 0;
+	top: 250px;
+    left: 288px;
 	background: none;
 	border: none;
 	font-size: 64px;
@@ -577,8 +578,8 @@ video {
 
 #btn-destaque-next {
 	position: absolute;
-	top: 140px;
-	right: 0;
+	top: 250px;
+    right: 288px;
 	background: none;
 	border: none;
 	font-size: 64px;

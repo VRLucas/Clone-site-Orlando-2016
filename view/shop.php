@@ -2,46 +2,25 @@
 
 <section>
 
-	<div class="container" id="destaque-produtos-container">
+	<div class="container" id="destaque-produtos-container" ng-controller="destaque-controller">
 
 		<div id="destaque-produtos">
 
-			<div class="item">
+			<div class="item" ng-repeat="produto in produtos">
 
 				<div class="col-sm-6 col-imagem">
-					<img src="img/produtos/moto-x.png" alt="Nome do Produto">
+					<img src="img/produtos/{{produto.foto_principal}}" alt="{{produto.nome_pro_longo}}">
 				</div>
 				<div class="col-sm-6 col-descricao">
-					<h2>Smartphone Motorola Moto X Play Dual Chip Desbloqueado Andoid 5.1</h2>
+					<h2>{{produto.nome_pro_longo}}</h2>
 					<div class="box-valor">
 						<div class="text-noboleto text-arial-cinza">no boleto</div>
 						<div class="text-por text-arial-cinza">por</div>
 						<div class="text-reais text-roxo">R$</div>
-						<div class="text-valor text-roxo">1.259</div>
-						<div class="text-valor-centavos text-roxo">,10</div>
-						<div class="text-parcelas text-arial-cinza">ou em até 8x de R$ 174,88</div>
-						<div class="text-total text-arial-cinza">total a prazo R$ 1.399,00</div>
-					</div>
-					<a href="#" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i> compre agora</a>
-				</div>
-
-			</div>
-
-			<div class="item">
-
-				<div class="col-sm-6 col-imagem">
-					<img src="img/produtos/moto-x.png" alt="Nome do Produto">
-				</div>
-				<div class="col-sm-6 col-descricao">
-					<h2>Smartphone Motorola Moto X Play Dual Chip Desbloqueado Andoid 5.1</h2>
-					<div class="box-valor">
-						<div class="text-noboleto text-arial-cinza">no boleto</div>
-						<div class="text-por text-arial-cinza">por</div>
-						<div class="text-reais text-roxo">R$</div>
-						<div class="text-valor text-roxo">1.259</div>
-						<div class="text-valor-centavos text-roxo">,10</div>
-						<div class="text-parcelas text-arial-cinza">ou em até 8x de R$ 174,88</div>
-						<div class="text-total text-arial-cinza">total a prazo R$ 1.399,00</div>
+						<div class="text-valor text-roxo">{{produto.preco}}</div>
+						<div class="text-valor-centavos text-roxo">,{{produto.centavos}}</div>
+						<div class="text-parcelas text-arial-cinza">ou em até {{produto.pacelas}}x de R$ {{produto.pacela}}</div>
+						<div class="text-total text-arial-cinza">total a prazo R$ {{produto.total_pago}}</div>
 					</div>
 					<a href="#" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i> compre agora</a>
 				</div>
@@ -50,8 +29,10 @@
 
 		</div>
 
-		<button type="button" id="btn-destaque-prev"><i class="fa fa-angle-left"></i></button>
-		<button type="button" id="btn-destaque-next"><i class="fa fa-angle-right"></i></button>
+	</div>
+
+	<button type="button" id="btn-destaque-prev"><i class="fa fa-angle-left"></i></button>
+	<button type="button" id="btn-destaque-next"><i class="fa fa-angle-right"></i></button>
 
 	</div>
 
@@ -171,39 +152,26 @@
 <?php include_once("footer.php"); ?>
 
 <script>
-	$(function() {
+	angular.module("shop", []).controller("destaque-controller", function($scope) {
+		$scope.produtos = [];
 
-		$("#destaque-produtos").owlCarousel({
-
-			autoPlay: 5000,
-			items: 1,
-			singleItem: true
-
+		$scope.produtos.push({
+			nome_pro_longo: "Smartphone Motorola Moto X Play Dual Chip Desbloqueado Andoid 5.1",
+			foto_principal: "moto-x.png",
+			preco: "1.259",
+			centavos: "10",
+			pacelas: 8,
+			pacela: "174,88",
+			total_pago: "1.399,00"
 		});
-
-		var owlDestaque = $("#destaque-produtos").data('owlCarousel');
-
-		$('#btn-destaque-prev').on("click", function() {
-
-			owlDestaque.prev();
-
-		});
-
-		$('#btn-destaque-next').on("click", function() {
-
-			owlDestaque.next();
-
-		});
-
-		$('.estrelas').each(function() {
-
-			$(this).raty({
-				starHalf: 'lib/raty/lib/images/star-half.png', 
-				starOff: 'lib/raty/lib/images/star-off.png', 
-				starOn: 'lib/raty/lib/images/star-on.png',
-				score: parseFloat($(this).data("score"))
-			});
-
+		$scope.produtos.push({
+			nome_pro_longo: "iPhone 6s 16GB Prata Desbloqueado iOS 9 4G 12MP - Apple",
+			foto_principal: "iphone.jpg",
+			preco: "1499",
+			centavos:"00",
+			pacelas: 8,
+			pacela: "250",
+			total_pago: "2000.00"
 		});
 
 	});

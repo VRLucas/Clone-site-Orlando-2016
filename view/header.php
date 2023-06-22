@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="shop">
 	<head>
 
 		<meta charset="utf-8">
@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="css/orlando.css">
 		<link rel="stylesheet" href="css/orlando-mobile.css">
 		<link rel="shortcut icon" href="../img/ico/orlando-logo.ico" type="image/x-icon">
+
+		<script src="lib/angularJs/angular.min.js"></script>
 
 	</head>
 	<body>
