@@ -25,7 +25,7 @@ class Sql {
 	    while ($row = mysqli_fetch_array($result)) {
 	        
 	    	foreach ($row as $key => $value) {
-	    		$row[$key] = utf8_encode($value);
+	    		$row[$key] = mb_convert_encoding($value, "UTF-8");;
 	    	}
 
 	        array_push($data, $row);
