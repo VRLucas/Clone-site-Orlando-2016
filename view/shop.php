@@ -24,7 +24,7 @@
 						<div class="text-parcelas text-arial-cinza">ou em até {{produto.parcelas}}x de R$ {{produto.parcela}}</div>
 						<div class="text-total text-arial-cinza">total a prazo R$ {{produto.total}}</div>
 					</div>
-					<a href="produtos-{{produto.id_prod}}" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i> compre agora</a>
+					<a href="produtos-{{produto.id_prod}}" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i> Compre agora</a>
 				</div>
 
 			</div>

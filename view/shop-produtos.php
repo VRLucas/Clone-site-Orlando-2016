@@ -21,7 +21,7 @@
                         <div class="text-parcelas text-arial-cinza">ou em até <?=$produtos['pacelas']?>x de R$ <?= $produtos['preco_pacelas']?></div>
                         <div class="text-total text-arial-cinza">total a prazo R$ <?=$produtos['preco']?></div>
                     </div>
-                    <a href="#" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i> compre agora</a>
+                    <a href="carrinhoAdd-<?=$produtos['id_prod']?>" class="btn btn-comprar text-roxo"><i class="fa fa-shopping-cart"></i> Compre agora</a>
                 </div>
 
             </div>
